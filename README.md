@@ -17,6 +17,13 @@ https://documenter.getpostman.com/view/3706781/TVzPkxff
 Note: Use Postman for test the endpoints.
 
 
+## DB
+
+After up docker-compose, you can connect to database:
+- user: postgres
+- password: postgres 
+- DB: Store
+
 
 
 
