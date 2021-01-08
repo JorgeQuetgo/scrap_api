@@ -1,0 +1,30 @@
+version: '3.1'
+
+services:
+  database:
+    image: postgres:latest
+    hostname: database
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_DB: Store
+    ports:
+      - 5433:5432
+  backend:
+    build: .
+    command: >
+      bash -c "python manage.py makemigrations api &&
+      python manage.py migrate api &&
+      python manage.py runserver 0.0.0.0:8000"
+    environment:
+      DB_HOST: database
+      DB_NAME: Store
+      DB_USER: postgres
+      DB_PSW: postgres
+    volumes:
+      - .:/usr/src/app
+    restart: unless-stopped
+    ports:
+      - '8000:8000'
+    depends_on:
+      - database
