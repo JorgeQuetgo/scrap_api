@@ -19,7 +19,8 @@ Note: Use Postman for test the endpoints.
 
 ## DB
 
-After up docker-compose, you can connect to database:
+After up docker-compose, you can connect to database (postgresql):
+
 - user: postgres
 - password: postgres 
 - DB: Store
